@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+	<a href="{% url 'admin_publicacion' %}" target="_blank"><button>LISTADO DE TITULOS CREADOS POR ADMINISTRADORES</button></a>
+    {% for publicacion in publicaciones %}
+    <div class="post">
+        <div class="date">
+            <p>Publicado: {{publicacion.fecha_publicacion}}</p>
+        </div>
+        <h1><a href="{% url 'detalle_publicacion' pk=publicacion.pk %}">{{ publicacion.titulo }}</a></h1>
+    </div>
+    {% endfor %}
+{% endblock %}
